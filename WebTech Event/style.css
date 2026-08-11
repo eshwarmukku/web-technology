@@ -1,0 +1,276 @@
+/* =========================
+   General Styling
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #eef2f7;
+    color: #222;
+}
+
+
+/* =========================
+   Navigation Header
+========================= */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #5b2c83, #8e44ad);
+    color: white;
+    padding: 18px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 8px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 20px;
+    transition: 0.3s ease;
+}
+
+nav ul li a:hover {
+    background: white;
+    color: #6a1b9a;
+}
+
+
+/* =========================
+   Events Section
+========================= */
+
+.events {
+    padding: 50px 30px;
+    text-align: center;
+}
+
+.event-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.card {
+    width: 280px;
+    min-height: 220px;
+    padding: 25px;
+    background: white;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(106, 27, 154, 0.25);
+}
+
+.status {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #e74c3c;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   Form Section
+========================= */
+
+.form-section {
+    padding: 35px;
+    background: white;
+    max-width: 650px;
+    margin: 40px auto;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input,
+select {
+    padding: 13px;
+    margin: 8px 0 18px;
+    border-radius: 8px;
+    border: 1px solid #bbb;
+    font-size: 15px;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus,
+select:focus {
+    border-color: #8e44ad;
+    box-shadow: 0 0 5px rgba(142, 68, 173, 0.3);
+}
+
+
+/* Submit Button */
+
+input[type="submit"] {
+    background: linear-gradient(135deg, #6a1b9a, #9b59b6);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 13px;
+    transition: 0.3s;
+}
+
+input[type="submit"]:hover {
+    background: linear-gradient(135deg, #4a148c, #7b1fa2);
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   Attribute Selector
+========================= */
+
+input[type="email"] {
+    background: #faf5ff;
+}
+
+
+/* =========================
+   Descendant Selector
+========================= */
+
+footer a {
+    color: #ffd700;
+    text-decoration: none;
+}
+
+
+/* =========================
+   Child Selector
+========================= */
+
+nav > ul {
+    padding: 0;
+}
+
+
+/* =========================
+   Group Selector
+========================= */
+
+h1,
+h2,
+h3 {
+    text-shadow: 1px 1px 3px #bbb;
+}
+
+
+/* =========================
+   Pseudo Element
+========================= */
+
+h2::after {
+    content: " ✦";
+    color: #f39c12;
+}
+
+
+/* =========================
+   Fixed Help Button
+========================= */
+
+.help {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #e67e22;
+    color: white;
+    border-radius: 50%;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.help:hover {
+    transform: rotate(10deg) scale(1.1);
+    background: #d35400;
+}
+
+
+/* =========================
+   Responsive Design
+========================= */
+
+@media (max-width: 768px) {
+
+    header {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    nav ul li {
+        margin: 5px;
+    }
+
+    .event-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;
+        max-width: 350px;
+    }
+
+    .form-section {
+        width: 90%;
+        padding: 25px;
+    }
+
+    form {
+        width: 100%;
+    }
+}
