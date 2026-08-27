@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Browser Information Dashboard</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #dbeafe, #f3e8ff);
+            margin: 0;
+            padding: 30px;
+            min-height: 1500px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px gray;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .info {
+            background-color: #f1f5f9;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            font-size: 18px;
+        }
+
+        .label {
+            font-weight: bold;
+            color: #444;
+        }
+
+        #status {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Browser Information Dashboard</h1>
+
+    <div class="info">
+        <span class="label">Current URL:</span>
+        <span id="url"></span>
+    </div>
+
+    <div class="info">
+        <span class="label">Browser Language:</span>
+        <span id="language"></span>
+    </div>
+
+    <div class="info">
+        <span class="label">Online Status:</span>
+        <span id="status"></span>
+    </div>
+
+    <div class="info">
+        <span class="label">Screen Width:</span>
+        <span id="screenWidth"></span> px
+    </div>
+
+    <div class="info">
+        <span class="label">Screen Height:</span>
+        <span id="screenHeight"></span> px
+    </div>
+
+    <div class="info">
+        <span class="label">Viewport Width:</span>
+        <span id="viewportWidth"></span> px
+    </div>
+
+    <div class="info">
+        <span class="label">Viewport Height:</span>
+        <span id="viewportHeight"></span> px
+    </div>
+
+    <div class="info">
+        <span class="label">Scroll X:</span>
+        <span id="scrollX"></span> px
+    </div>
+
+    <div class="info">
+        <span class="label">Scroll Y:</span>
+        <span id="scrollY"></span> px
+    </div>
+
+</div>
+
+<script>
+
+function displayInformation() {
+
+    // window.location
+    document.getElementById("url").textContent =
+        window.location.href;
+
+    // navigator
+    document.getElementById("language").textContent =
+        navigator.language;
+
+    document.getElementById("status").textContent =
+        navigator.onLine ? "Online" : "Offline";
+
+    // screen object
+    document.getElementById("screenWidth").textContent =
+        screen.width;
+
+    document.getElementById("screenHeight").textContent =
+        screen.height;
+
+    // window object
+    document.getElementById("viewportWidth").textContent =
+        window.innerWidth;
+
+    document.getElementById("viewportHeight").textContent =
+        window.innerHeight;
+
+    // Scroll position
+    document.getElementById("scrollX").textContent =
+        window.scrollX;
+
+    document.getElementById("scrollY").textContent =
+        window.scrollY;
+}
+
+
+// Display information when page loads
+displayInformation();
+
+
+// Resize event
+window.addEventListener("resize", function() {
+    displayInformation();
+});
+
+
+// Scroll event
+window.addEventListener("scroll", function() {
+    displayInformation();
+});
+
+</script>
+
+</body>
+</html>

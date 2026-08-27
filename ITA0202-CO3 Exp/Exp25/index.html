@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cross-Browser Compatible Webpage</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 30px;
+            background-color: #eeeeee;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .box {
+            padding: 20px;
+            margin: 15px 0;
+            background-color: #e8f0fe;
+            border-radius: 10px;
+        }
+
+        button {
+            padding: 12px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 6px;
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        /* CSS Feature Detection */
+
+        @supports (display: grid) {
+
+            .feature-box {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+        }
+
+        /* Fallback for browsers without CSS Grid */
+
+        @supports not (display: grid) {
+
+            .feature-box {
+                display: block;
+            }
+
+        }
+
+        .item {
+            padding: 20px;
+            background-color: lightblue;
+            margin: 5px;
+        }
+
+        #status {
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Cross-Browser Compatible Webpage</h1>
+
+    <div class="box">
+        <h2>Browser Feature Detection</h2>
+
+        <p id="storageStatus">
+            Checking localStorage...
+        </p>
+
+        <p id="queryStatus">
+            Checking querySelector()...
+        </p>
+
+        <p id="cssStatus">
+            Checking CSS Grid...
+        </p>
+    </div>
+
+
+    <div class="box">
+
+        <h2>Interactive Example</h2>
+
+        <button id="saveButton">
+            Save Data
+        </button>
+
+        <button id="showButton">
+            Show Data
+        </button>
+
+        <p id="status"></p>
+
+    </div>
+
+
+    <div class="box">
+
+        <h2>CSS Feature Demonstration</h2>
+
+        <div class="feature-box">
+
+            <div class="item">
+                Item 1
+            </div>
+
+            <div class="item">
+                Item 2
+            </div>
+
+            <div class="item">
+                Item 3
+            </div>
+
+            <div class="item">
+                Item 4
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    // Check localStorage support
+
+    function checkLocalStorage() {
+
+        try {
+
+            if (typeof Storage !== "undefined") {
+
+                localStorage.setItem("test", "Hello");
+                localStorage.removeItem("test");
+
+                document.getElementById("storageStatus").textContent =
+                    "✓ localStorage is supported.";
+
+                return true;
+
+            }
+
+        } catch (error) {
+
+            // Fallback
+
+        }
+
+        document.getElementById("storageStatus").textContent =
+            "✗ localStorage is not supported. Using temporary memory.";
+
+        return false;
+    }
+
+
+    // Check querySelector support
+
+    function checkQuerySelector() {
+
+        if (document.querySelector) {
+
+            document.getElementById("queryStatus").textContent =
+                "✓ querySelector() is supported.";
+
+            return true;
+
+        } else {
+
+            document.getElementById("queryStatus").textContent =
+                "✗ querySelector() is not supported. Using getElementById().";
+
+            return false;
+        }
+    }
+
+
+    // Check CSS Grid support
+
+    function checkCSSSupport() {
+
+        if (CSS && CSS.supports &&
+            CSS.supports("display", "grid")) {
+
+            document.getElementById("cssStatus").textContent =
+                "✓ CSS Grid is supported.";
+
+        } else {
+
+            document.getElementById("cssStatus").textContent =
+                "✗ CSS Grid is not supported. Fallback layout is used.";
+
+        }
+    }
+
+
+    // Save data
+
+    document.getElementById("saveButton")
+        .addEventListener("click", function() {
+
+            if (checkLocalStorage()) {
+
+                localStorage.setItem(
+                    "studentName",
+                    "Hari Prasad"
+                );
+
+                document.getElementById("status").textContent =
+                    "Student data saved using localStorage.";
+
+            } else {
+
+                document.getElementById("status").textContent =
+                    "localStorage unavailable. Data cannot be permanently saved.";
+
+            }
+
+        });
+
+
+    // Show data
+
+    document.getElementById("showButton")
+        .addEventListener("click", function() {
+
+            if (checkLocalStorage()) {
+
+                let name = localStorage.getItem("studentName");
+
+                if (name) {
+
+                    document.getElementById("status").textContent =
+                        "Stored Student: " + name;
+
+                } else {
+
+                    document.getElementById("status").textContent =
+                        "No student data found.";
+
+                }
+
+            } else {
+
+                document.getElementById("status").textContent =
+                    "Fallback mode: localStorage is unavailable.";
+
+            }
+
+        });
+
+
+    // Run feature detection
+
+    checkLocalStorage();
+    checkQuerySelector();
+    checkCSSSupport();
+
+</script>
+
+</body>
+</html>

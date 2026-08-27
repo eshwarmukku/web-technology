@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Result Processing</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef2f7;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .container {
+            width: 500px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 12px gray;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        input {
+            width: 90%;
+            padding: 12px;
+            margin: 7px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 12px 25px;
+            margin-top: 15px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Student Result Processing</h1>
+
+    <form action="result" method="post">
+
+        <input type="text"
+               name="studentName"
+               placeholder="Student Name">
+
+        <input type="text"
+               name="registerNumber"
+               placeholder="Register Number">
+
+        <input type="text"
+               name="mark1"
+               placeholder="Subject 1 Mark">
+
+        <input type="text"
+               name="mark2"
+               placeholder="Subject 2 Mark">
+
+        <input type="text"
+               name="mark3"
+               placeholder="Subject 3 Mark">
+
+        <input type="text"
+               name="mark4"
+               placeholder="Subject 4 Mark">
+
+        <input type="text"
+               name="mark5"
+               placeholder="Subject 5 Mark">
+
+        <br>
+
+        <button type="submit">Calculate Result</button>
+
+    </form>
+
+</div>
+
+</body>
+</html>
