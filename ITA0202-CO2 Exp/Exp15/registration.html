@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIMATS Engineering College - Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>SIMATS Engineering College</h1>
+    <p>Engineer to Excel</p>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="courses.html">Courses</a>
+    <a href="registration.html">Registration</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<section class="content">
+
+<h2>Student Registration Form</h2>
+
+<form action="https://script.google.com/macros/s/AKfycbzeu-4hkuVploalhqTB3mR_MNRnMUCGaAd74MUylc2FMuqybjenJUN_g8PmtEzcJpK9/exec" method="POST">
+
+<label>Full Name</label>
+<input type="text" name="name" placeholder="Enter your name" required>
+
+<label>Email Address</label>
+<input type="email" name="email" placeholder="Enter your email" required>
+
+<label>Mobile Number</label>
+<input type="tel" name="mobile" placeholder="Enter mobile number" required>
+
+<label>Date of Birth</label>
+<input type="date" name="dob" required>
+
+<label>Gender</label><br><br>
+
+<input type="radio" name="gender" value="Male" required> Male
+<input type="radio" name="gender" value="Female"> Female
+<input type="radio" name="gender" value="Other"> Other
+
+<br><br>
+
+<label>Select Course</label>
+
+<select name="course" required>
+    <option value="">Select Course</option>
+    <option>B.Sc Computer Science</option>
+    <option>B.Tech IT</option>
+    <option>B.Com</option>
+    <option>BBA</option>
+    <option>M.Sc Computer Science</option>
+    <option>MCA</option>
+</select>
+
+<label>Address</label>
+
+<textarea name="address" rows="5" placeholder="Enter your address"></textarea>
+
+<label>Upload Photo</label>
+
+<input type="file" name="photo">
+
+<br><br>
+
+<input type="submit" value="Register">
+<input type="reset" value="Clear">
+
+</form>
+
+</section>
+
+<footer>
+    <p>&copy; 2026 SIMATS Engineering College. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
