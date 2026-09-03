@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #74ebd5, #9face6);
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            width: 400px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 15px;
+        }
+
+        input:focus {
+            border-color: #667eea;
+            outline: none;
+            box-shadow: 0 0 5px rgba(102,126,234,0.4);
+        }
+
+        button {
+            padding: 10px 15px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        #display {
+            background-color: #667eea;
+            color: white;
+        }
+
+        #remove {
+            background-color: #e74c3c;
+            color: white;
+            margin-left: 5px;
+        }
+
+        button:hover {
+            opacity: 0.85;
+        }
+
+        .profile {
+            background-color: #e8f4ff;
+            padding: 20px;
+            margin-top: 25px;
+            width: auto;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+        }
+
+        .profile h3 {
+            color: #667eea;
+            margin-top: 0;
+        }
+
+        .profile p {
+            color: #333;
+            padding: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Student Registration</h2>
+
+    <label>Name:</label>
+    <input type="text" id="name">
+
+    <label>Register Number:</label>
+    <input type="text" id="regno">
+
+    <label>Department:</label>
+    <input type="text" id="dept">
+
+    <label>Year:</label>
+    <input type="text" id="year">
+
+    <button id="display">Display Profile</button>
+    <button id="remove">Remove Profile</button>
+
+    <div id="profile"></div>
+
+</div>
+
+<script>
+    document.getElementById("display").addEventListener("click", function() {
+
+        let name = document.getElementById("name").value;
+        let regno = document.getElementById("regno").value;
+        let dept = document.getElementById("dept").value;
+        let year = document.getElementById("year").value;
+
+        let profile = document.getElementById("profile");
+
+        profile.textContent = "";
+
+        let heading = document.createElement("h3");
+        heading.textContent = "Student Profile";
+
+        let p1 = document.createElement("p");
+        p1.textContent = "Name: " + name;
+
+        let p2 = document.createElement("p");
+        p2.textContent = "Register Number: " + regno;
+
+        let p3 = document.createElement("p");
+        p3.textContent = "Department: " + dept;
+
+        let p4 = document.createElement("p");
+        p4.textContent = "Year: " + year;
+
+        profile.appendChild(heading);
+        profile.appendChild(p1);
+        profile.appendChild(p2);
+        profile.appendChild(p3);
+        profile.appendChild(p4);
+
+        profile.classList.add("profile");
+    });
+
+    document.getElementById("remove").addEventListener("click", function() {
+        document.getElementById("profile").textContent = "";
+        document.getElementById("profile").classList.remove("profile");
+    });
+</script>
+
+</body>
+</html>
